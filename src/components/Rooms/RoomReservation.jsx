@@ -11,8 +11,6 @@ const RoomReservation = () => {
         <div className="font-light text-neutral-600 ">night </div>
       </div>
 
-      <hr />
-
       <Calender></Calender>
 
       <hr />
