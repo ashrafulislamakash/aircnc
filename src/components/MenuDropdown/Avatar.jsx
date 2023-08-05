@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import Avatarimg from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../../providers/AuthProvider";
+import { AuthContext } from "../../providers/AuthProvider";
 const Avatar = () => {
-  // const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <Link to="/">
       <img
-        // src={user && user.photoURL ? user.photoURL : Avatarimg}
-        src={Avatarimg}
+        src={user && user.photoURL ? user.photoURL : Avatarimg}
         alt="Avatarimg"
         width="30"
         height="30"

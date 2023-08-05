@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { ImSpinner } from "react-icons/Im";
 
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  // const { loading, setLoading, signIn, signInWithGoogle, resetPassword } =
-  //   useContext(AuthContext);
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { loading, setLoading, signIn, signInWithGoogle, resetPassword } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -23,6 +23,7 @@ const Login = () => {
       .catch((err) => {
         console.log(err.message);
         toast.error(err.message);
+        setLoading(false);
       });
   };
 
@@ -77,7 +78,11 @@ const Login = () => {
               type="submit"
               className="bg-rose-500 w-full rounded-md py-3 text-white"
             >
-              Continue
+              {loading ? (
+                <ImSpinner size={24} className="mx-auto" />
+              ) : (
+                "Continue"
+              )}
             </button>
           </div>
         </form>
