@@ -1,7 +1,6 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-
-import { FcGoogle } from "react-icons/fc";
 import { useContext, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProvider";
 import { ImSpinner } from "react-icons/Im";
 
@@ -12,11 +11,11 @@ const Login = () => {
   const { loading, setLoading, signIn, signInWithGoogle, resetPassword } =
     useContext(AuthContext);
 
-  const location = useLocation;
-  const from = location.state?.pathname || "/";
-
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
+  
   const emailRef = useRef();
 
   //handle Submit
