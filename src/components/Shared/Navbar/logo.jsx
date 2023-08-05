@@ -9,7 +9,7 @@ const logo = () => {
         alt="logo"
         width="100"
         height="100"
-        // className="hidden sm:block"
+        className="hidden sm:block"
       />
     </Link>
   );

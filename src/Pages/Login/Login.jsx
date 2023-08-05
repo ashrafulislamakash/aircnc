@@ -15,7 +15,6 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  
   const emailRef = useRef();
 
   //handle Submit
@@ -120,7 +119,7 @@ const Login = () => {
               className="bg-rose-500 w-full rounded-md py-3 text-white"
             >
               {loading ? (
-                <ImSpinner size={24} className="mx-auto" />
+                <ImSpinner size={24} className="mx-auto animate-spin" />
               ) : (
                 "Continue"
               )}
