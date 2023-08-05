@@ -1,16 +1,11 @@
-<<<<<<< HEAD
+
+
 import { Link } from "react-router-dom";
-=======
->>>>>>> 33047fd8f346dfe0a275d03a9fa5a4bcf8151d8b
 import HeartButton from "../Button/HeartButton";
 
 const Card = ({ room }) => {
   return (
-<<<<<<< HEAD
     <Link to={`/room/${1}`} className="col-span-1 cursor-pointer group ">
-=======
-    <div className="col-span-1 cursor-pointer group ">
->>>>>>> 33047fd8f346dfe0a275d03a9fa5a4bcf8151d8b
       <div className="flex flex-col gap-2 w-full">
         <div
           className="
@@ -52,11 +47,7 @@ const Card = ({ room }) => {
           <div className="font-light">night</div>
         </div>
       </div>
-<<<<<<< HEAD
     </Link>
-=======
-    </div>
->>>>>>> 33047fd8f346dfe0a275d03a9fa5a4bcf8151d8b
   );
 };
 
