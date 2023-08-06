@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AddRoomForm from "../../components/Forms/AddRoomForm";
+import { imageUpload } from "../../api/utils";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const AddRoom = () => {
   const [loading, setLoading] = useState(false);
   const [uploadButtonText, setUploadButtonText] = useState("Upload Image");
+
+  const { user } = useContext(AuthContext);
+
+  const [dates, setDates] = useState({
+    startDate: new Date(),
+    endDate: new Date(),
+    key: "selection",
+  });
 
   // handleSubmit
   const handleSubmit = (event) => {
@@ -21,10 +31,46 @@ const AddRoom = () => {
     const category = event.target.category.value;
 
     const image = event.target.image.files[0];
+
+    //Upload Image
+
+    imageUpload(image)
+      .then((data) => {
+        const roomDate = {
+          image: data.display_url,
+          location,
+          title,
+          from,
+          to,
+          price: parseFloat(price),
+          total_guest,
+          bedrooms,
+          bathrooms,
+          description,
+          image: res.data.display_url,
+          host: {
+            name: user?.displayName,
+            image: user?.photoURL,
+            email: user?.email,
+          },
+          category,
+        };
+
+        console.log(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setLoading(false);
+      });
   };
 
   const handleImageChange = (image) => {
     setUploadButtonText(image.name);
+  };
+
+  const handleDates = (ranges) => {
+    setDates(ranges);
   };
   return (
     <AddRoomForm
@@ -32,6 +78,8 @@ const AddRoom = () => {
       loading={loading}
       handleImageChange={handleImageChange}
       uploadButtonText={uploadButtonText}
+      dates={dates}
+      handleDates={handleDates}
     />
   );
 };
