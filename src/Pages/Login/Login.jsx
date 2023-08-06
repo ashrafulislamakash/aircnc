@@ -6,6 +6,7 @@ import { ImSpinner } from "react-icons/Im";
 
 import toast from "react-hot-toast";
 import { enIE } from "date-fns/locale";
+import { saveUser } from "../../api/auth";
 
 const Login = () => {
   const { loading, setLoading, signIn, signInWithGoogle, resetPassword } =
@@ -41,6 +42,10 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
+
+        // save user to Db
+        saveUser(result.user);
+
         navigate(from, { replace: true });
       })
       .catch((err) => {

@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { ImSpinner } from "react-icons/Im";
 
 import toast from "react-hot-toast";
+import { saveUser } from "../../api/auth";
 
 const SignUp = () => {
   const {
@@ -49,6 +50,11 @@ const SignUp = () => {
             updateUserProfile(name, imageUrl)
               .then(() => {
                 toast.success("Signup successful");
+
+                // save user to Db
+
+                saveUser(result.user);
+
                 navigate(from, { replace: true });
               })
               .catch((err) => {
@@ -77,6 +83,7 @@ const SignUp = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
+        saveUser(result.user);
         navigate(from, { replace: true });
       })
       .catch((err) => {
