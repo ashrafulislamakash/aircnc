@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import AddRoomForm from "../../components/Forms/AddRoomForm";
 import { imageUpload } from "../../api/utils";
 import { AuthContext } from "../../providers/AuthProvider";
+import { addRoom } from "../../api/rooms";
 
 const AddRoom = () => {
   const [loading, setLoading] = useState(false);
@@ -47,7 +48,7 @@ const AddRoom = () => {
           bedrooms,
           bathrooms,
           description,
-          image: res.data.display_url,
+          image: data.data.display_url,
           host: {
             name: user?.displayName,
             image: user?.photoURL,
@@ -56,7 +57,11 @@ const AddRoom = () => {
           category,
         };
 
-        console.log(data);
+        //post room data to server
+
+        addRoom(roomDate).then((data) => console.log(data));
+
+        console.log(roomDate);
         setLoading(false);
       })
       .catch((err) => {
@@ -70,7 +75,7 @@ const AddRoom = () => {
   };
 
   const handleDates = (ranges) => {
-    setDates(ranges);
+    setDates(ranges.selection);
   };
   return (
     <AddRoomForm
