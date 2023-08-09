@@ -32,9 +32,9 @@ const RoomInfo = ({ roomData }) => {
             text-neutral-500
           "
         >
-          <div>5 guests</div>
-          <div>3 rooms</div>
-          <div>2 bathrooms</div>
+          <div>{roomData.total_guest} guests</div>
+          <div>{roomData.bedrooms} rooms</div>
+          <div>{roomData.bathrooms} bathrooms</div>
         </div>
       </div>
 

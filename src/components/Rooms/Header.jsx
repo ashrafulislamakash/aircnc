@@ -9,7 +9,7 @@ const Header = ({ roomData }) => {
       <div className="w-full md:h-[60vh] overflow-hidden rounded-xl">
         <img
           className="object-cover w-full"
-          src={roomData.img}
+          src={roomData.image}
           alt="headerimg"
         />
       </div>
