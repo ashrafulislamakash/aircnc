@@ -6,6 +6,7 @@ import { FcSettings } from "react-icons/fc";
 import { BsFillHouseAddFill } from "react-icons/bs";
 import { AiOutlineBars } from "react-icons/ai";
 import { AuthContext } from "../../../providers/AuthProvider";
+import GuestMenu from "./GuestMenu";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
@@ -97,7 +98,7 @@ const Sidebar = () => {
                   </span>
                 </label>
                 {/* Menu Links */}
-                <NavLink
+                {/* <NavLink
                   to="/dashboard/addroom"
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
@@ -108,7 +109,9 @@ const Sidebar = () => {
                   <BsFillHouseAddFill className="w-5 h-5" />
 
                   <span className="mx-4 font-medium">Add Room</span>
-                </NavLink>
+                </NavLink> */}
+
+                <GuestMenu></GuestMenu>
               </>
             </nav>
           </div>

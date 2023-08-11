@@ -6,8 +6,12 @@ import { AuthContext } from "../../providers/AuthProvider";
 import BookingModal from "../Modal/BookingModal";
 
 import { formatDistance } from "date-fns";
-import { addBooking } from "../../api/bookings";
+import { addBooking, updateStatus } from "../../api/bookings";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 const RoomReservation = ({ roomData }) => {
+  const navigate = useNavigate();
   // Price Calculation
   const totalPrice =
     parseFloat(
@@ -54,7 +58,7 @@ const RoomReservation = ({ roomData }) => {
           .then((data) => {
             console.log(data);
             toast.success("Booking Successful!");
-            // navigate("/dashboard/my-bookings");
+            navigate("/dashboard/my-bookings");
             closeModal();
           })
           .catch((err) => console.log(err));
@@ -78,7 +82,7 @@ const RoomReservation = ({ roomData }) => {
       <div className="p-4">
         <Button
           onClick={() => setIsOpen(true)}
-          disabled={roomData.host.email === user.email}
+          disabled={roomData.host.email === user.email || roomData.booked}
           label="Reserved"
         >
           {" "}
