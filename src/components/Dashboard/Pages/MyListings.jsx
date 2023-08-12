@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import TableRow from "../TableRow";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { getRooms } from "../../../api/rooms";
 import RoomDataRow from "../RoomDataRow";
@@ -66,14 +65,12 @@ const MyListings = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* Table Data */}
-
                 {rooms &&
                   rooms.map((room) => (
                     <RoomDataRow
-                      key={room._id}
+                      key={room?._id}
                       room={room}
-                      fetchBookings={fetchBookings}
+                      fetchRooms={fetchRooms}
                     />
                   ))}
               </tbody>
