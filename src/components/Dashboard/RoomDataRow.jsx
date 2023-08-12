@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import DeleteModal from "../Modal/DeleteModal";
 import { deleteRoom } from "../../api/rooms";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const RoomDataRow = ({ room, fetchRooms }) => {
   let [isOpen, setIsOpen] = useState(false);

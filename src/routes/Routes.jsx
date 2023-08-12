@@ -10,8 +10,9 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import AddRoom from "../Pages/Dashboard/AddRoom";
 import { getRoom } from "../api/rooms";
-import MyBookings from "../components/Dashboard/Pages/MyBookings";
-import MyListings from "../components/Dashboard/Pages/MyListings";
+import MyBookings from "../Pages/Dashboard/MyBookings";
+import MyListings from "../Pages/Dashboard/MyListings";
+import ManageBookings from "../Pages/Dashboard/ManageBookings";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/my-listings",
-        element: <MyListings></MyListings>
+        element: <MyListings></MyListings>,
+      },
+      {
+        path: "/dashboard/manage-bookings",
+        element: <ManageBookings></ManageBookings>,
       },
     ],
   },

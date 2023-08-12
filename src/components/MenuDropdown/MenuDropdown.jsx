@@ -12,11 +12,10 @@ const MenuDropdown = () => {
   const { user, logOut, role, setRole } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [modal, setModal] = useState(false);
+
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
-
-  console.log(role);
 
   const modalHandler = (email) => {
     becomeHost(email).then((data) => {
@@ -30,6 +29,7 @@ const MenuDropdown = () => {
   const closeModal = () => {
     setModal(false);
   };
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
