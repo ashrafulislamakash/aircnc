@@ -4,7 +4,7 @@ import { useState } from "react";
 import { deleteBooking, updateStatus } from "../../api/bookings";
 import { toast } from "react-hot-toast";
 
-const TableRow = ({ booking }) => {
+const TableRow = ({ booking, fetchBookings }) => {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {

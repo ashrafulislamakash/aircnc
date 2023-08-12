@@ -1,5 +1,4 @@
-// booking a room in db
-
+// Add a booking
 export const addBooking = async (bookingData) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings`, {
     method: "POST",
@@ -8,6 +7,7 @@ export const addBooking = async (bookingData) => {
     },
     body: JSON.stringify(bookingData),
   });
+
   const data = await response.json();
   return data;
 };
@@ -38,10 +38,9 @@ export const getBookings = async (email) => {
 };
 
 // delete a booking
-
 export const deleteBooking = async (id) => {
   const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/rooms/status/${id}`,
+    `${import.meta.env.VITE_API_URL}/bookings/${id}`,
     {
       method: "DELETE",
       headers: {
