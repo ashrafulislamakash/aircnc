@@ -7,25 +7,36 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
 const MyListings = () => {
-  const { user, loading } = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
-  // const [rooms, setRooms] = useState([]);
+  const { user, loading } = useContext(AuthContext);
 
-  // const fetchRooms = () =>
-  //   axiosSecure.get(user?.email).then((data) => setRooms(data));
 
-  // useEffect(() => {
-  //   fetchRooms();
-  // }, [user]);
+  // const [rooms, setRooms] = useState([])
+  // const fetchRooms = () => getRooms(user?.email).then(data => setRooms(data))
 
-  const { data: rooms = [], refetch } = useQuery({
+  
+  const { refetch, data: rooms = [] } = useQuery({
     queryKey: ["rooms", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/rooms/${user?.email}`);
+      const res = await axiosSecure(
+        `${import.meta.env.VITE_API_URL}/rooms/${user?.email}`
+      );
+      console.log("res from axios", res.data);
       return res.data;
     },
   });
+
+  // const test = async () => {
+  //   const res = await axiosSecure(
+  //     `${import.meta.env.VITE_API_URL}/rooms/${user?.email}`
+  //   )
+  //   setRooms(res.data)
+  // }
+  // useEffect(() => {
+  //   // fetchRooms()
+  //   test()
+  // }, [user])
 
   return (
     <>

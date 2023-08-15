@@ -1,29 +1,14 @@
-//ADD room in db
-
+// Add a room
 export const addRoom = async (roomData) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
     },
     body: JSON.stringify(roomData),
   });
 
-  const data = await response.json();
-  return data;
-};
-
-//get filters rooms for host
-
-export const getRooms = async (email) => {
-  const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/rooms/${email}`,
-    {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      },
-    }
-  );
   const data = await response.json();
   return data;
 };
@@ -35,15 +20,23 @@ export const getAllRooms = async () => {
   return data;
 };
 
-// Get Single room dada
+//get filtered rooms for hosts
+export const getRooms = async (email) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_API_URL}/rooms/${email}`
+  );
+  const data = await response.json();
+  return data;
+};
+
+// Get single room
 export const getRoom = async (id) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/room/${id}`);
   const data = await response.json();
   return data;
 };
 
-//Delete a room
-
+// Delete a room
 export const deleteRoom = async (id) => {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
     method: "DELETE",
@@ -51,7 +44,21 @@ export const deleteRoom = async (id) => {
       "content-type": "application/json",
     },
   });
-
   const result = await response.json();
   return result;
+};
+
+// update a room
+export const updateRoom = async (roomData, id) => {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/rooms/${id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("access-token")}`,
+    },
+    body: JSON.stringify(roomData),
+  });
+
+  const data = await response.json();
+  return data;
 };

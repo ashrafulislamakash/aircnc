@@ -11,6 +11,7 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const { logOut } = useContext(AuthContext);
+
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
       const token = `Bearer ${localStorage.getItem("access-token")}`;
@@ -35,7 +36,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-  }, []);
+  }, [logOut, navigate, axiosSecure]);
 
   return [axiosSecure];
 };
