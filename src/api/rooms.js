@@ -62,3 +62,4 @@ export const updateRoom = async (roomData, id) => {
   const data = await response.json();
   return data;
 };
+

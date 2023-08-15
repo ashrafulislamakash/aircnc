@@ -13,6 +13,7 @@ import { getRoom } from "../api/rooms";
 import MyBookings from "../Pages/Dashboard/MyBookings";
 import MyListings from "../Pages/Dashboard/MyListings";
 import ManageBookings from "../Pages/Dashboard/ManageBookings";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => getRoom(params.id),
+      },
+      {
+        path: "/",
+        errorElement: <ErrorPage></ErrorPage>,
       },
     ],
   },
@@ -68,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/manage-bookings",
         element: <ManageBookings></ManageBookings>,
+      },
+      {
+        path: "/",
+        errorElement: <ErrorPage></ErrorPage>,
       },
     ],
   },

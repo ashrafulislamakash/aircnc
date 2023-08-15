@@ -3,9 +3,11 @@ import DeleteModal from "../Modal/DeleteModal";
 import { deleteRoom } from "../../api/rooms";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import UpdatedModal from "../Modal/UpdatedModal";
 
 const RoomDataRow = ({ room, refetch }) => {
   let [isOpen, setIsOpen] = useState(false);
+  let [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -80,13 +82,23 @@ const RoomDataRow = ({ room, refetch }) => {
         />
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        <span className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+        <span
+          onClick={() => setIsEditModalOpen(true)}
+          className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+        >
           <span
             aria-hidden="true"
             className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
           ></span>
           <span className="relative">Update</span>
         </span>
+        <UpdatedModal
+          isOpen={isEditModalOpen}
+          setIsEditModalOpen={setIsEditModalOpen}
+          room={room}
+          refetch={refetch}
+          id={room._id}
+        ></UpdatedModal>
       </td>
     </tr>
   );
