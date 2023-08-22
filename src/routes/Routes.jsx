@@ -34,10 +34,6 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) => getRoom(params.id),
       },
-      {
-        path: "/",
-        errorElement: <ErrorPage></ErrorPage>,
-      },
     ],
   },
   {
@@ -73,10 +69,6 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/manage-bookings",
         element: <ManageBookings></ManageBookings>,
-      },
-      {
-        path: "/",
-        errorElement: <ErrorPage></ErrorPage>,
       },
     ],
   },

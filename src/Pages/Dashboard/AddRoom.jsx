@@ -41,7 +41,6 @@ const AddRoom = () => {
     imageUpload(image)
       .then((data) => {
         const roomDate = {
-          image: data.display_url,
           location,
           title,
           from,
