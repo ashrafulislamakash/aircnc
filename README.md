@@ -7,7 +7,7 @@ The platform provides a wide range of options in terms of price, location, and a
 1 . Clone the Repository: First, you need to clone the GitHub repository containing the React project to your local machine. Use the following command in your terminal or Git Bash:
 
 ```javascript
-git clone https://github.com/ashrafulislamakash/Summer-Zone-Creative-School.git
+git clone https://github.com/ashrafulislamakash/venture-home-mern.git
 ```
 
 2. Navigate to the Project Directory: After cloning the repository, navigate to the project directory using the cd command in the terminal:
@@ -31,5 +31,5 @@ npm run dev
 This command will start the Vite development server, and your React project will be running locally at a default URL like http://localhost:3000/
 
 live Site :
-[https://summerzone-de0a5.web.app/](https://venture-home-mern.web.app/)https://venture-home-mern.web.app/
+https://venture-home-mern.web.app
 
