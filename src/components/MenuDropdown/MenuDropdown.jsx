@@ -37,7 +37,7 @@ const MenuDropdown = () => {
           {!role && (
             <button onClick={() => setModal(true)} disabled={!user}>
               {" "}
-              AirCNC your home
+              Add your home
             </button>
           )}
         </div>

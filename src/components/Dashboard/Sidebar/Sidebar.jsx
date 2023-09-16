@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-
+import logo from "../../../assets/logo.svg";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { BsFillHouseAddFill } from "react-icons/bs";
@@ -33,7 +33,7 @@ const Sidebar = () => {
       <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
         <div>
           <div className="block cursor-pointer p-4 font-bold">
-            <h1>Logo</h1>
+            <img className="w-24" src={logo} alt="logo" />
           </div>
         </div>
 
@@ -53,9 +53,10 @@ const Sidebar = () => {
         <div>
           {/* Branding & Profile Info */}
           <div>
-            <div className="w-full hidden md:flex py-2 justify-center items-center bg-rose-100 mx-auto">
-              {/* <Logo /> */}
-              Logo
+            <div className="w-full hidden md:flex py-2 justify-center items-center">
+              <Link className=" cursor-pointer" to="/">
+                <img className="w-24" src={logo} alt="logo" />
+              </Link>
             </div>
             <div className="flex flex-col items-center mt-6 -mx-2">
               <Link to="/dashboard">
@@ -94,10 +95,10 @@ const Sidebar = () => {
                       type="checkbox"
                       className="hidden peer"
                     />
-                    <span className="px-4 py-1 rounded-l-md bg-rose-400 peer-checked:bg-gray-300">
+                    <span className="px-4 py-1 rounded-l-md bg-green-400 peer-checked:bg-gray-300">
                       Guest
                     </span>
-                    <span className="px-4 py-1 rounded-r-md bg-gray-300 peer-checked:bg-rose-400">
+                    <span className="px-4 py-1 rounded-r-md bg-gray-300 peer-checked:bg-green-400">
                       Host
                     </span>
                   </label>

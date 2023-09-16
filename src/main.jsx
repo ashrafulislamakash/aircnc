@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import router from "./routes/Routes.jsx";
-import { RouterProvider } from "react-router-dom";
+
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 

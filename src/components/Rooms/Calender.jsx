@@ -3,7 +3,8 @@ import { DateRange } from "react-date-range";
 const DatePicker = ({ value, handleSelect }) => {
   return (
     <DateRange
-      rangeColors={["#F43F5E"]}
+      rangeColors={["#22C55E"]}
+      color={"#152137"}
       ranges={[value]}
       onChange={handleSelect}
       date={value.startDate}

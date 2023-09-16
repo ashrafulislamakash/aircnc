@@ -35,11 +35,14 @@ const router = createBrowserRouter([
         loader: ({ params }) => getRoom(params.id),
       },
     ],
+    errorElement: <ErrorPage></ErrorPage>,
   },
+
   {
     path: "/login",
     element: <Login></Login>,
   },
+  
   {
     path: "/signup",
     element: <SignUp></SignUp>,
