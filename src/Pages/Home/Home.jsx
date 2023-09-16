@@ -9,11 +9,9 @@ const Home = () => {
     <div>
       <Categories></Categories>
       <Rooms></Rooms>
-
-      <div className="py-24">
+      <div className="pt-24">
         <CTA></CTA>
       </div>
-
       <Review></Review>
     </div>
   );
